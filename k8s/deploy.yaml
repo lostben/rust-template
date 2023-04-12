@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rust
+  name: section-project-deployment
   labels:
-    app: rust
+    app: section-project-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rust
+      app: section-project-deployment
   template:
     metadata:
       labels:
-        app: rust
+        app: section-project-deployment
     spec:
       containers:
-      - name: rust
-        image: ghcr.io/${IMAGE_NAME}:main
-        imagePullPolicy: Always
-        resources:
-          requests:
-            cpu: ".1"
-            memory: ".1Gi"
-          limits:
-            cpu: ".1"
-            memory: ".1Gi"
-        ports:
-        - containerPort: 8080
+        - name: section-project-deployment
+          image: ghcr.io/${IMAGE_NAME}:main
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: ".1"
+              memory: ".1Gi"
+            limits:
+              cpu: ".1"
+              memory: ".1Gi"
+          ports:
+            - containerPort: 8080
