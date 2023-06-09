@@ -1,0 +1,30 @@
+class BudgetingApp:
+    def __init__(self):
+        self.transactions = []
+        self.balance = 0.0
+
+    def add_income(self, amount, description):
+        self.transactions.append({'amount': amount, 'description': description})
+        self.balance += amount
+
+    def add_expense(self, amount, description):
+        self.transactions.append({'amount': -amount, 'description': description})
+        self.balance -= amount
+
+    def view_transactions(self):
+        for transaction in self.transactions:
+            print(transaction)
+
+    def view_balance(self):
+        print(f"Current balance: ${self.balance:.2f}")
+
+
+# Example usage
+app = BudgetingApp()
+
+app.add_income(1000, "Salary")
+app.add_expense(100, "Groceries")
+app.add_expense(50, "Dinner")
+
+app.view_transactions()
+app.view_balance()
